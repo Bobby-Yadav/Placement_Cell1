@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="/assets/css/company.css" />
+
+      <!-- TopBAr CSS -->
+      <link rel="stylesheet" href="/assets/css/topbar.css">
+      <!-- Sidebar CSS -->
+      <link rel="stylesheet" href="/assets/css/sidebar.css">
+  <title>
+    <%= title%>
+  </title>
+</head>
+
+<body>
+  <div class="companies-page-container">
+    <%- include('_topNavbar') %>
+
+    <div class="add-companies-container">
+      <%- include('_sideNavbar') %>
+
+
+      <div class="companies-list-container">
+        <div class="add-company">Add Company</div>
+
+        <ul class="company-box">
+          <% for(let company of companies) { %>
+            <li class="company-container">
+              <h2 class="company-name">
+                <%= company.name %>
+              </h2>
+              <p class="interview-date">
+                Listed on: <%= company.addedtime %>
+              </p>
+              <p class="company-desc">
+                <%= company.description %>
+              </p>
+
+              <span id= <%= company._id %> class="more-company-detail">More Details
+                <i class="bi bi-arrow-right"></i>
+              </span>
+            </li>
+          <% } %>
+        </ul>
+      </div>
+
+      <div class="company-details-container">
+        <i class="bi bi-x-lg"></i>
+
+        <h2 class="company-details-name"></h2>
+        <ol class="students-list">
+          
+        </ol>
+      </div>
+    </div>
+
+    <div class="add-company-container">
+      <i class="bi bi-x"></i>
+      <h3>Add Company</h3>
+      <form action="/employee/companies-page/create-company" class="add-company-form" method="post">
+        <div class="form-data">
+          <label for="name">Company Name:</label>
+          <input type="text" name="name" />
+        </div>
+
+        <div class="form-data">
+          <label for="description">Company Description: </label>
+          <textarea name="description" cols="30" rows="5"></textarea>
+        </div>
+
+        <button class="add-company-btn" type="submit">Add Company</button>
+      </form>
+    </div>
+  </div>
+  <script src="/assets/js/company.js"></script>
+  <script src="/assets/js/_sidebar.js"></script>
+</body>
+
+</html>

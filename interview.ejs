@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/assets/css/interview.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap" rel="stylesheet">
+        <!-- TopBAr CSS -->
+        <link rel="stylesheet" href="/assets/css/topbar.css">
+        <!-- Sidebar CSS -->
+        <link rel="stylesheet" href="/assets/css/sidebar.css">
+    <title>
+        <%= title%>
+    </title>
+</head>
+
+<body>
+    <div class="interview-page-container">
+        <%- include('_topNavbar') %>
+
+        <div class="add-interview-container">
+        <%- include('_sideNavbar') %>
+
+            <div class="interview-list-container">
+                <div class="add-interview">
+                    Add Interview
+                </div>
+                <div class="interview-list-box">
+                    <table>
+                        <thead class="interview-list-head">
+                            <tr>
+                                <th>Sl.No</th>
+                                <th>Student Name</th>
+                                <th>Company Name</th>
+                                <th>Interview Date</th>
+                                <th>Status</th>
+                                <th>Update</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <% for(let index=0;index < interviews.length; index++) {%>
+                                <% let sl = index + 1 %>
+                                <tr>
+                                    <td><%= sl %>.</td>
+                                    <td>
+                                        <%= interviews[index].studentName %>
+                                    </td>
+                                    <td>
+                                        <%= interviews[index].companyName %>
+                                    </td>
+                                    <td>
+                                        <%= interviews[index].interviewDate %>
+                                    </td>
+                                    <td>
+                                        <%= interviews[index].status %>
+                                    </td>
+                                    <td><span class="update-interview-btn" id="<%= interviews[index]._id%>">Update</span></td>
+                                    <td><a class="delete-interview" href="/employee/interviews-page/delete-interview/<%= interviews[index]._id%>">Delete</a></td>
+                                </tr>
+                                <% } %>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="create-interview">
+            <form action="/employee/interviews-page/createInterview" method="post" class="create-interview-form">
+                <i class="bi bi-x close-interview"></i>
+                <h3>Assign Interview</h3>
+                <div class="interview-form-data">
+                    <label for="studentLabel">Student Name: </label>
+                    <select id="studentLabel" name="student">
+                        <% for (let student of students) { %>
+                            <option value="<%=student._id %>,<%= student.name %> ">
+                                <%= student.name %>
+                            </option>
+                            <% } %>
+                    </select>
+                </div>
+
+                <div class="interview-form-data">
+                    <label for="companyLabel">Company Name: </label>
+                    <select name="company" id="companyLabel">
+                        <% for (let company of companies) { %>
+                            <option value="<%=company._id %>,<%= company.name %>">
+                                <%= company.name %>
+                            </option>
+                            <% } %>
+                    </select>
+                </div>
+
+                <div class="interview-form-data">
+                    <label for="interviewDate">Interview Date:</label>
+                    <input type="date" name="interviewDate">
+                </div>
+
+
+                <div class="interview-form-data">
+                    <label for="status">Status:</label>
+                    <select name="status" id="status">
+                        <option value="To be decided">To be decided</option>
+                        <option value="On Hold">On Hold</option>
+                        <option value="Passed">Passed</option>
+                        <option value="Failed">Failed</option>
+                        <option value="Not Attended">Not Attended</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="assign">Assign Interview</button>
+
+            </form>
+        </div>
+
+        <div class="update-interview">
+            
+        </div>
+    </div>
+
+    <script src="/assets/js/interview.js"></script>
+    <script src="/assets/js/_sidebar.js"></script>
+
+</body>
+
+</html>

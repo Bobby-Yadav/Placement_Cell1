@@ -1,0 +1,141 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Varela Round', sans-serif;
+    color: rgb(66, 66, 66);
+}
+
+.dashboard-container{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    background-image: url('/assets/images/bg-1.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.employee-section{
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+}
+.employee-dashboard{
+    background-color: rgb(232, 232, 232);
+    border-radius: 10px;
+    /* width: 65%; */
+    flex: 1;
+    padding-left: 20px;
+    overflow-y: scroll;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgb(190, 190, 190);
+}
+.employee-dashboard::-webkit-scrollbar{
+    display: none;
+}
+.greet-employee{
+    font-size: 50px;
+}
+
+.tasks-card{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.box{
+    height: 150px;
+    width: 300px;
+    background-color: azure;
+    border-radius: 10px;
+    transition: 0.2s;
+    color: rgb(196, 196, 196);
+    display: flex;
+    align-items: end;
+    font-size: 20px;
+    padding: 10px;
+    position: relative;
+    cursor: pointer;
+    border: 1px solid rgb(120, 120, 120);
+    text-decoration: none;
+}
+.box:hover{
+    transform: scale(1.1);
+    color: rgb(204, 231, 255);
+    border: 1px solid rgb(0, 153, 255);
+
+}
+
+.box > i{
+    position: absolute;
+    right: 10px;
+}
+
+.add-student{
+    background-image: url('/assets/images/Screenshot\ 2023-06-07\ 185406.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.add-comapny{
+    background-image: url('/assets/images/127.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+.employee-part{
+    margin-right: 10px;
+    display: flex;
+    justify-content: space-around;
+    width: 140px;
+}
+.top-bar-icons{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    padding: 3px;
+    background-color: aliceblue;
+    cursor: pointer;
+}
+.top-bar-icons:hover{
+    background-color: rgb(248, 100, 142);
+}
+.profile-pic{
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 10px;
+}
+.student-card{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.student-card h5{
+    color: rgb(233, 233, 233);
+    font-size: 16px;
+}
+.student-card span{
+    color: rgb(169, 169, 169);
+    font-size: 12px;
+}
+.msg{
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    right: 10px;
+}
+
+.recently-placed-student:hover{
+    background-color: rgb(82, 82, 82);
+    color: aliceblue;
+}

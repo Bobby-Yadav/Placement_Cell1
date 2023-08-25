@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap" rel="stylesheet">
+    
+    <!-- Custom Css  -->
+    <link rel="stylesheet" href="./assets/css/home.css">
+    <title>
+        <%= title %>
+    </title>
+</head>
+
+<body>
+
+
+    <div class="homepage">
+        <div class="welcome-text">
+            <div class="greet-msg">
+                Welcome To
+                <div class="site-name">
+                    <span class="logo-first">C</span>AREERLAND
+                </div>
+            </div>
+            <span class="quote">
+                The future belongs to those who believe in the beauty of their dreams.
+            </span>
+            
+            <h3 style="color: rgb(248, 78, 157); margin-top: 20px;">Employee Login!</h3>
+            <div class="authorization">
+                    <% if(!user) { %> 
+                        <a class="sign-in" href="/authorization">Sign In</a>
+                        <a class="sign-up" href="/authorization">Create Your Account</a>
+                    <% } else {%>
+                        <a class="sign-up" href="/employee/dashboard">Go to Dashboard</a>
+                        <% } %>
+
+            </div>
+        </div>
+        <div class="home-background">
+        </div>
+    </div>
+</body>
+
+</html>
